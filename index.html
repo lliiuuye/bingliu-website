@@ -250,30 +250,32 @@
 
         // 新闻加载函数
         async function loadNews() {
-            const container = document.getElementById('news-container');
-            
-            try {
-                // 首选API请求
-                let response = await fetch(`${config.apiUrl}&apiKey=${config.apiKey}`);
-                let data = await response.json();
+    const container = document.getElementById('news-container');
 
-                // 如果首选API失败，尝试备用API
-                if (!data.articles?.length) {
-                    response = await fetch(`${config.fallbackApi}&apikey=${config.apiKey}`);
-                    data = await response.json();
-                    if (data.entries) data.articles = data.entries; // 适配不同API结构
-                }
+    try {
+        console.log("正在请求新闻数据...");
+        let response = await fetch(`${config.apiUrl}&apiKey=${config.apiKey}`);
+        
+        console.log("API 响应状态:", response.status);  // 打印 HTTP 状态码
+        let data = await response.json();
+        console.log("API 返回数据:", data);  // 打印 API 返回的 JSON 数据
 
-                renderNews(data.articles);
-            } catch (error) {
-                console.error('新闻加载失败:', error);
-                container.innerHTML = `
-                    <div class="error-message">
-                        ⚠️ 动态加载失败，请<a href="javascript:location.reload()">刷新页面</a>重试
-                    </div>
-                `;
-            }
+        // 如果 API 返回的数据为空，尝试备用 API
+        if (!data.articles?.length) {
+            console.warn("主 API 没有返回新闻数据，尝试备用 API...");
+            response = await fetch(`${config.fallbackApi}&apikey=${config.apiKey}`);
+            data = await response.json();
+            console.log("备用 API 返回数据:", data);
+            if (data.entries) data.articles = data.entries; // 适配不同 API 结构
         }
+
+        renderNews(data.articles);
+    } catch (error) {
+        console.error("新闻加载失败:", error);
+        container.innerHTML = `<div class="error-message">⚠️ 动态加载失败，请<a href="javascript:location.reload()">刷新页面</a>重试</div>`;
+    }
+}
+
 
         // 渲染新闻函数
         function renderNews(articles) {
