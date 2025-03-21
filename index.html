@@ -42,6 +42,34 @@
         .section:nth-child(even) {
             background-color: #e8f5e9;
         }
+        .news-container {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #fff3e0;
+            border-radius: 5px;
+        }
+        .news-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .news-item h3 {
+            margin: 0 0 10px;
+            color: #333;
+        }
+        .news-item p {
+            margin: 0 0 10px;
+            color: #555;
+        }
+        .news-item a {
+            color: #1e88e5;
+            text-decoration: none;
+        }
+        .news-item a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -97,6 +125,47 @@
                 </li>
             </ul>
         </div>
+
+        <!-- 新闻部分 -->
+        <div class="section">
+            <h2>实时新闻</h2>
+            <div class="news-container" id="news-container">
+                <p>正在加载新闻...</p>
+            </div>
+        </div>
     </div>
+
+    <script>
+        // 替换为你的 NewsAPI 密钥
+        const apiKey = '5e9c842b3c994b1eaf6adf8dbf01bd3f';
+        const apiUrl = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
+
+        // 获取新闻数据并渲染
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const newsContainer = document.getElementById('news-container');
+                newsContainer.innerHTML = ''; // 清空加载提示
+
+                if (data.articles && data.articles.length > 0) {
+                    data.articles.slice(0, 5).forEach(article => { // 只显示前 5 条新闻
+                        const newsItem = document.createElement('div');
+                        newsItem.className = 'news-item';
+                        newsItem.innerHTML = `
+                            <h3>${article.title}</h3>
+                            <p>${article.description || '无描述'}</p>
+                            <a href="${article.url}" target="_blank">阅读更多</a>
+                        `;
+                        newsContainer.appendChild(newsItem);
+                    });
+                } else {
+                    newsContainer.innerHTML = '<p>暂无新闻数据。</p>';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching news:', error);
+                document.getElementById('news-container').innerHTML = '<p>无法加载新闻，请稍后重试。</p>';
+            });
+    </script>
 </body>
 </html>
