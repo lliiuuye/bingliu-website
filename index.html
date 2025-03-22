@@ -252,6 +252,8 @@
         async function loadNews() {
     const container = document.getElementById('news-container');
 
+    console.log(6);
+
     try {
         console.log("正在请求新闻数据...");
         let response = await fetch(`${config.apiUrl}&apiKey=${config.apiKey}`);
