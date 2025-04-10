@@ -4,7 +4,6 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-# 更新为爬取 TechCrunch 的科技新闻
 def fetch_techcrunch_news():
     url = "https://techcrunch.com/"
     headers = {
@@ -14,13 +13,13 @@ def fetch_techcrunch_news():
     response = requests.get(url, headers=headers)
     soup = BeautifulSoup(response.text, "html.parser")
 
+    print(soup.prettify())  # 输出格式化的 HTML 内容以查看结构
+
     articles = []
-    # TechCrunch 网站的新闻结构是通过 <a> 标签在 <h2> 标签下
-    for item in soup.select("h2 a"):  # 只获取前5条新闻
-        title = item.get_text(strip=True)
+    for item in soup.select("a[data-qa='story-card-title']"):
+        print(item)  # 输出每个匹配的新闻链接，调试用
+        title = item.text.strip()
         link = item["href"]
-        if not link.startswith("http"):
-            link = "https://techcrunch.com" + link  # 补全相对链接
         articles.append({"title": title, "url": link})
 
     return articles
