@@ -16,7 +16,7 @@ def fetch_techcrunch_news():
 
     articles = []
     # TechCrunch 网站的新闻结构是通过 <a> 标签在 <h2> 标签下
-    for item in soup.select("h2 a")[:15]:  # 只获取前5条新闻
+    for item in soup.select("h2 a"):  # 只获取前5条新闻
         title = item.get_text(strip=True)
         link = item["href"]
         if not link.startswith("http"):
