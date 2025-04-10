@@ -11,6 +11,10 @@ def fetch_bbc_news():
     }
 
     response = requests.get(url, headers=headers)
+    
+    # 打印返回的 HTML 内容，以便确认是否获取到正确的页面
+    print(response.text)
+
     soup = BeautifulSoup(response.text, "html.parser")
 
     articles = []
