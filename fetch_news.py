@@ -40,7 +40,7 @@ for i, (title, _) in enumerate(titles, 1):
 
 driver.quit()
 
-# 构造插入 HTML 的 JavaScript 脚本内容
+# 构造插入 HTML 的 JavaScript 脚本内容11
 news_items_html = ""
 for title, href in titles:
     news_items_html += f"""<div class="news-item"><a href="{href}" target="_blank">{title}</a></div>\n"""
