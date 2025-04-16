@@ -42,7 +42,7 @@ jobs:
     - name: 使用个人访问令牌进行推送
       run: |
         git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
-        git add index.html
+        git add public/index.html
         git commit -m "自动生成 index.html ✅" || echo "没有改动"
         git push
     
