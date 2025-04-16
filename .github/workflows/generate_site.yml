@@ -24,6 +24,12 @@ jobs:
       run: |
         pip install requests jinja2 selenium webdriver-manager
 
+    - name: 安装 Chromium
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y chromium-browser
+
+
 
     - name: 运行 Python 脚本生成 index.html
       run: python fetch_news.py
@@ -35,3 +41,9 @@ jobs:
         git add index.html
         git commit -m "自动生成 index.html ✅" || echo "没有改动"
         git push
+
+    - name: 列出工作目录内容
+      run: ls -lah
+
+    - name: 检查 index.html 是否存在
+      run: test -f index.html && echo "✅ 找到 index.html" || echo "❌ 没找到 index.html"
