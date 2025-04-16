@@ -52,7 +52,7 @@ js_script = f"""
 """
 
 # 读取原始 HTML 文件
-with open("index_temp.html", "r", encoding="utf-8") as f:
+with open("public/index_temp.html", "r", encoding="utf-8") as f:
     html_content = f.read()
 
 # 插入 JS 到 </body> 前
