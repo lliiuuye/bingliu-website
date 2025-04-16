@@ -7,7 +7,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 # 启动 Chrome 浏览器
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-driver.get("https://mil.news.sina.com.cn/")
+driver.get("https://news.sina.com.cn/world/")
 
 # 等待目标文章元素加载出来
 wait = WebDriverWait(driver, 10)
