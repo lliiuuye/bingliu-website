@@ -43,6 +43,9 @@ jobs:
       run: |
         git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
 
+    - name: 查看 remote 设置
+      run: git remote -v
+
     - name: 使用个人访问令牌进行推送1
       run: |
           git add public/index.html
@@ -56,6 +59,5 @@ jobs:
     - name: 检查 index.html 是否存在
       run: test -f index.html && echo "✅ 找到 index.html" || echo "❌ 没找到 index.html"
 
-    - name: 查看 remote 设置
-      run: git remote -v
+
     
