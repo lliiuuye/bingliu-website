@@ -10,7 +10,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write  # 👈 Add this
     steps:
     - name: 获取仓库代码
       uses: actions/checkout@v3
