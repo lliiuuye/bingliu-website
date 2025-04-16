@@ -1,0 +1,36 @@
+name: 生成并部署网站
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: # 允许手动触发
+  schedule:
+    - cron: '0 8 * * *' # 每天 UTC 8:00 自动执行一次（可改）
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 获取仓库代码
+      uses: actions/checkout@v3
+
+    - name: 设置 Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: 安装依赖（如有）
+      run: |
+        pip install requests jinja2
+
+    - name: 运行 Python 脚本生成 index.html
+      run: python fetch_news.py
+
+    - name: 提交并推送生成的 index.html
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        git add index.html
+        git commit -m "自动生成 index.html ✅" || echo "没有改动"
+        git push
