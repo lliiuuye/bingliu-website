@@ -20,9 +20,10 @@ jobs:
       with:
         python-version: '3.11'
 
-    - name: 安装依赖（如有）
+    - name: 安装依赖
       run: |
-        pip install requests jinja2
+        pip install requests jinja2 selenium webdriver-manager
+
 
     - name: 运行 Python 脚本生成 index.html
       run: python fetch_news.py
