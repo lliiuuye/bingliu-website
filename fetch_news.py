@@ -1,12 +1,19 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 
-# 启动 Chrome 浏览器
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+options = Options()
+options.add_argument('--headless')  # 关键：无头模式
+options.add_argument('--no-sandbox')
+options.add_argument('--disable-dev-shm-usage')
+
+# 启动 Chrome 浏览器（Headless）
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+
 driver.get("https://news.sina.com.cn/world/")
 
 # 等待目标文章元素加载出来
