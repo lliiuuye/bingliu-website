@@ -72,4 +72,4 @@ else:
 with open("public/index.html", "w", encoding="utf-8") as f:
     f.write(html_content)
 
-print("✅ 已生成 index_with_news.html，打开即可看到技术动态区域更新！")
+print("✅ 已生成 index.html，打开即可看到技术动态区域更新！")

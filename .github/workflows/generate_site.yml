@@ -3,9 +3,9 @@ name: 生成并部署网站
 on:
   push:
     branches: [ main ]
-  workflow_dispatch: # 允许手动触发
+  workflow_dispatch: # 手动触发
   schedule:
-    - cron: '0 8 * * *' # 每天 UTC 8:00 自动执行一次（可改）
+    - cron: '0 8 * * *' # 每天 UTC 8:00 自动执行
 
 jobs:
   build-and-deploy:
@@ -29,35 +29,24 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y chromium-browser
 
-
-
     - name: 运行 Python 脚本生成 index.html
       run: python fetch_news.py
 
-    - name: 设置 Git 配置
+    - name: 设置 Git 用户信息并推送更改
       run: |
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
-    
-    - name: 使用个人访问令牌进行推送
-      run: |
         git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
+        git add public/index.html
+        git commit -m "自动生成 index.html ✅" || echo "没有改动"
+        git push
 
-    - name: 查看 remote 设置
+    - name: 查看远程仓库地址
       run: git remote -v
-
-    - name: 使用个人访问令牌进行推送1
-      run: |
-          git add public/index.html
-          git commit -m "自动生成 index.html ✅" || echo "没有改动"
-          git push
-
 
     - name: 列出工作目录内容
       run: ls -lah
 
     - name: 检查 index.html 是否存在
-      run: test -f index.html && echo "✅ 找到 index.html" || echo "❌ 没找到 index.html"
-
-
-    
+      run: |
+        test -f public/index.html && echo "✅ 找到 index.html" || echo "❌ 没找到 index.html"
