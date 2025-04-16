@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bing Liu - 个人网站</title>
+    <style>
+        /* 基础样式 */
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* 个人信息头部分 */
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+        
+        .position {
+            font-size: 1.2rem;
+            color: #bdc3c7;
+            margin-top: 0.5rem;
+        }
+
+        /* 联系方式 */
+        .contact-info {
+            background: #ecf0f1;
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            border-bottom: 3px solid #3498db;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        /* 主体内容 */
+        .main-content {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+        }
+
+        /* 左侧主要内容 */
+        .left-column > section {
+            margin-bottom: 2rem;
+        }
+
+        /* 右侧新闻栏 */
+        .news-column {
+            background: #f5f6fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        /* 通用内容区块样式 */
+        .section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* 技能列表 */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 6px;
+        }
+
+        /* 项目经验 */
+        .project-item {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-left: 3px solid #3498db;
+            background: #f8f9fa;
+        }
+
+        /* 动态新闻样式 */
+        .news-item {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 6px;
+            transition: transform 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部信息 -->
+        <header class="header">
+            <h1>Bing Liu</h1>
+            <div class="position">计算机程序员 | Seneca College 学生</div>
+        </header>
+
+        <!-- 联系方式 -->
+        <div class="contact-info">
+            <div class="contact-item">
+                <strong>📍 地址</strong>
+                <p>96 Matteo David Dr, Richmond Hill, L4S 2S9</p>
+            </div>
+            <div class="contact-item">
+                <strong>📞 电话</strong>
+                <p>(647) 613-6016</p>
+            </div>
+            <div class="contact-item">
+                <strong>📧 邮箱</strong>
+                <p><a href="mailto:lliiuuye@gmail.com">lliiuuye@gmail.com</a></p>
+            </div>
+        </div>
+
+        <!-- 主体内容 -->
+        <div class="main-content">
+            <!-- 左侧主要信息 -->
+            <div class="left-column">
+                <!-- 个人简介 -->
+                <section class="section">
+                    <h2>👨💻 个人简介</h2>
+                    <p>Seneca College 计算机编程专业在读学生，擅长将理论知识与实践相结合。拥有扎实的 C++、SQL 和 Web 开发基础，熟悉 Linux 环境开发和版本控制流程。以解决问题为导向，具备良好的代码调试和优化能力。</p>
+                </section>
+
+                <!-- 教育背景 -->
+                <section class="section">
+                    <h2>🎓 教育背景</h2>
+                    <div class="education-item">
+                        <h3>Seneca College - 计算机编程文凭</h3>
+                        <p>2022.09 - 2024.04（预计）</p>
+                        <ul>
+                            <li>核心课程：C++ 高级编程、数据库系统设计、Web 开发基础、数据结构与算法</li>
+                            <li>学术成就：Dean's List 荣誉（2023 秋季学期）</li>
+                            <li>GPA：3.4/4.0</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- 技术能力 -->
+                <section class="section">
+                    <h2>🛠 技术能力</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>编程语言</h4>
+                            <ul>
+                                <li>C++ (STL)</li>
+                                <li>JavaScript</li>
+                                <li>SQL</li>
+                                <li>Python</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Web 开发</h4>
+                            <ul>
+                                <li>HTML5/CSS3</li>
+                                <li>Node.js</li>
+                                <li>RESTful API</li>
+                                <li>Tomcat</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>工具与环境</h4>
+                            <ul>
+                                <li>Linux/Unix</li>
+                                <li>Git/GitHub</li>
+                                <li>MySQL/MongoDB</li>
+                                <li>Android Studio</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 项目经验 -->
+                <section class="section">
+                    <h2>💼 项目经验</h2>
+                    <div class="project-item">
+                        <h3>智能仓储管理系统（C++）</h3>
+                        <ul>
+                            <li>使用 STL 容器实现库存数据的高效管理</li>
+                            <li>开发 CLI 交互界面支持多条件查询</li>
+                            <li>实现自动库存预警系统</li>
+                        </ul>
+                    </div>
+                    <div class="project-item">
+                        <h3>在线考试平台（Web）</h3>
+                        <ul>
+                            <li>基于 Node.js + Express 构建后端服务</li>
+                            <li>使用 JWT 实现安全认证</li>
+                            <li>开发实时监考功能（WebRTC）</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 右侧新闻栏 -->
+            <div class="news-column">
+                <div class="section">
+                    <h2>📰 技术动态</h2>
+                    <div id="news-container">
+                        <div class="loading">加载行业动态中...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const container = document.getElementById("news-container");
+        if (container) {
+            container.innerHTML = `<div class="news-item"><a href="https://news.sina.com.cn/o/2025-04-16/doc-inetimre0371691.shtml" target="_blank">附加赛-班凯罗17+9 特雷-杨28分&遭驱逐 魔术大胜老鹰进季后赛</a></div>
+<div class="news-item"><a href="https://news.sina.com.cn/w/2025-04-16/doc-inetimrf4719092.shtml" target="_blank">法国农业部向广告商提要求：用白人替代混血演员，用传统法国菜替代北非食物</a></div>
+<div class="news-item"><a href="https://news.sina.com.cn/w/2025-04-16/doc-inetimra3578193.shtml" target="_blank">有炸弹没鸡蛋？美国万亿军费太荒诞</a></div>
+<div class="news-item"><a href="https://news.sina.com.cn/w/2025-04-16/doc-inetimrf4713088.shtml" target="_blank">日本女星广末凉子获释 此前已被拘留多日</a></div>
+<div class="news-item"><a href="https://news.sina.com.cn/w/2025-04-16/doc-inetimra3569681.shtml" target="_blank">韩国警方对总统府展开扣押搜查</a></div>
+<div class="news-item"><a href="https://news.sina.com.cn/w/2025-04-16/doc-inetimqy7020773.shtml" target="_blank">拜登卸任后首次发表公开讲话痛斥特朗普：破坏之大 速度之快 令人震惊</a></div>
+<div class="news-item"><a href="https://news.sina.com.cn/w/2025-04-16/doc-inetimra3579511.shtml" target="_blank">新加坡突然大选，究竟什么情况？存三大变数！</a></div>
+<div class="news-item"><a href="https://news.sina.com.cn/w/2025-04-16/doc-inetimrf4695427.shtml" target="_blank">巴拿马总统驳斥美方炒作“中国干预巴拿马运河”：我们为修建运河而牺牲的华工建有墓地</a></div>
+<div class="news-item"><a href="https://news.sina.com.cn/w/2025-04-16/doc-inetimqy7017943.shtml" target="_blank">英伟达盘后大跌，市值蒸发1.2万亿元！美股遭大规模抛售，华尔街大佬集体警告</a></div>
+<div class="news-item"><a href="https://news.sina.com.cn/w/2025-04-16/doc-inetimrf4712962.shtml" target="_blank">哈萨克斯坦人民银行推出微信二维码支付服务</a></div>
+`;
+        } else {
+            console.error("❌ 没找到 news-container 元素！");
+        }
+    });
+</script>
+
+</body>
+</html>
