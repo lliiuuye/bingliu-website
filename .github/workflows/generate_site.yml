@@ -42,13 +42,20 @@ jobs:
     - name: 使用个人访问令牌进行推送
       run: |
         git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
-        git add public/index.html
-        git commit -m "自动生成 index.html ✅" || echo "没有改动"
-        git push
-    
+
+    - name: 使用个人访问令牌进行推送1
+      run: |
+          git add public/index.html
+          git commit -m "自动生成 index.html ✅" || echo "没有改动"
+          git push
+
 
     - name: 列出工作目录内容
       run: ls -lah
 
     - name: 检查 index.html 是否存在
       run: test -f index.html && echo "✅ 找到 index.html" || echo "❌ 没找到 index.html"
+
+    - name: 查看 remote 设置
+      run: git remote -v
+    
