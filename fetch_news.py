@@ -14,7 +14,7 @@ options.add_argument('--disable-dev-shm-usage')
 # 启动 Chrome 浏览器（Headless）
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
-driver.get("https://news.sina.com.cn/world/")
+driver.get("https://www.cnn.com/business/")
 
 # 等待目标文章元素加载出来
 wait = WebDriverWait(driver, 10)
