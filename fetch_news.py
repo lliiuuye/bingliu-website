@@ -1,3 +1,4 @@
+import time
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
@@ -8,20 +9,33 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 options = Options()
 options.add_argument('--headless')  # 关键：无头模式
+options.add_argument('--disable-gpu')
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
+options.add_argument(
+    "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/91.0.4472.124 Safari/537.36"
+)
+
 
 # 启动 Chrome 浏览器（Headless）
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
-driver.get("https://news.sina.com.cn/world/")
+driver.get("https://tech.sina.com.cn/")
+
 
 # 等待目标文章元素加载出来
 wait = WebDriverWait(driver, 10)
+time.sleep(10)  # 等页面完全渲染
+
 wait.until(EC.presence_of_element_located((By.XPATH, '//a[@target="_blank" and string-length(text()) > 10]')))
 
 # 提取文章标题和链接
 elements = driver.find_elements(By.XPATH, '//a[@target="_blank" and string-length(text()) > 10]')
+
+
+
 
 # 筛选前 10 条标题
 titles = []

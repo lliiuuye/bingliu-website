@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+<!-- index_temp.html -->
+<!DOCTYPE html>      
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +8,156 @@
     <title>Bing Liu - Personal Website</title>
     <style>
         /* Your existing CSS remains unchanged here */
+        /* 通用样式 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 3px solid #ccc;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.position {
+    color: #666;
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+/* Contact Info */
+.contact-info {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.contact-item p {
+    margin: 5px 0 0 0;
+}
+
+/* Main Layout */
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Left Column */
+.left-column {
+    flex: 2;
+}
+
+.section {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.section h2 {
+    border-left: 5px solid #1a73e8;
+    padding-left: 10px;
+    color: #1a73e8;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.skill-category {
+    flex: 1;
+    min-width: 200px;
+}
+
+.skill-category h4 {
+    color: #555;
+}
+
+.skill-category ul {
+    padding-left: 20px;
+}
+
+.project-item h3 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+/* News Column */
+.news-column {
+    flex: 1;
+}
+
+.news-item {
+    background: #ffffff;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    transition: background 0.3s;
+}
+
+.news-item:hover {
+    background: #eef4ff;
+}
+
+.loading {
+    text-align: center;
+    padding: 20px;
+    color: #888;
+    font-style: italic;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .contact-info {
+        flex-direction: column;
+    }
+
+    .news-column {
+        order: -1;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -128,16 +280,16 @@
     document.addEventListener("DOMContentLoaded", function() {
         const container = document.getElementById("news-container");
         if (container) {
-            container.innerHTML = `<div class="news-item"><a href="https://news.sina.com.cn/w/2025-07-09/doc-infeuvzz4875832.shtml" target="_blank">又改口了 特朗普：不会赦免农场的非法移民</a></div>
-<div class="news-item"><a href="https://news.sina.com.cn/w/2025-07-09/doc-infeuwaf3352420.shtml" target="_blank">特朗普：将再次会见以色列总理 讨论加沙问题</a></div>
-<div class="news-item"><a href="https://news.sina.com.cn/w/2025-07-09/doc-infeuvzw6238484.shtml" target="_blank">联合国贸发会议：美国新一轮关税加剧贸易分裂风险</a></div>
-<div class="news-item"><a href="https://news.sina.com.cn/w/2025-07-09/doc-infeuvzz4865465.shtml" target="_blank">爆料：美航母将“被迫”减至10艘</a></div>
-<div class="news-item"><a href="https://news.sina.com.cn/w/2025-07-08/doc-infeuruf5540275.shtml" target="_blank">利比里亚官员：悬挂该国国旗的货轮在也门附近遭袭，2名船员死亡</a></div>
-<div class="news-item"><a href="https://news.sina.com.cn/w/2025-07-08/doc-infeuruf5540347.shtml" target="_blank">美国国债五连跌，30年期收益率5月以来首次逼近5%</a></div>
-<div class="news-item"><a href="https://news.sina.com.cn/w/2025-07-08/doc-infeuruf5535603.shtml" target="_blank">特朗普：“对等关税”将于8月1日开始实施</a></div>
-<div class="news-item"><a href="https://news.sina.com.cn/w/2025-07-08/doc-infeurua3119761.shtml" target="_blank">苏丹卫生部：新一轮霍乱疫情已致2145人死亡</a></div>
-<div class="news-item"><a href="https://news.sina.com.cn/w/2025-07-08/doc-infeuruc4973981.shtml" target="_blank">Manus回应裁员传闻：自身经营效率考量，对部分业务团队进行调整</a></div>
-<div class="news-item"><a href="https://news.sina.com.cn/w/2025-07-08/doc-infeumnf5081057.shtml" target="_blank">欧洲检方对法国极右翼政党展开新一轮调查</a></div>
+            container.innerHTML = `<div class="news-item"><a href="https://finance.sina.com.cn/world/2025-07-09/doc-infevhsa9888042.shtml" target="_blank">苹果公司迎来重大人事变动 首席运营官Williams将退休</a></div>
+<div class="news-item"><a href="https://finance.sina.com.cn/jjxw/2025-07-09/doc-infevhrx5181679.shtml" target="_blank">马斯克痛批：“极其疯狂且具破坏性”！美国的“兴奋剂”，全球的危险品</a></div>
+<div class="news-item"><a href="https://finance.sina.com.cn/tech/shenji/2025-07-09/doc-infevnxy9777080.shtml" target="_blank">24万坐个月子，3年却亏12亿！ “月子爱马仕”圣贝拉上市，钱都烧哪了？</a></div>
+<div class="news-item"><a href="https://finance.sina.com.cn/world/2025-07-09/doc-infevaix4752961.shtml" target="_blank">Meta向EssilorLuxottica投资35亿美元 推进AI眼镜战略</a></div>
+<div class="news-item"><a href="https://tousu.sina.com.cn/complaint/view/17384975578/?sld=64a9fe638b2838fa3ee7ea41244598ed" target="_blank">Apple应用恶意续订扣费</a></div>
+<div class="news-item"><a href="https://finance.sina.com.cn/tech/mobile/n/n/2025-07-09/doc-infewyzk1024163.shtml" target="_blank">三星Galaxy Z Flip7上手体验：外屏直接拉满</a></div>
+<div class="news-item"><a href="https://finance.sina.com.cn/world/2025-07-09/doc-infewyzh9190392.shtml" target="_blank">谷歌将Gemini引入Wear OS智能手表，为“圈选搜索”功能新增AI模式</a></div>
+<div class="news-item"><a href="https://finance.sina.com.cn/stock/usstock/c/2025-07-09/doc-infewyzf2413918.shtml" target="_blank">马斯克旗下X平台CEO宣布辞职</a></div>
+<div class="news-item"><a href="https://finance.sina.com.cn/tech/mobile/n/n/2025-07-09/doc-infewutk9317382.shtml" target="_blank">三星Galaxy Z Fold7上手：轻了薄了弯了</a></div>
+<div class="news-item"><a href="https://finance.sina.com.cn/stock/usstock/c/2025-07-09/doc-infewutk9316217.shtml" target="_blank">阿联酋航空与Crypto.com签署谅解备忘录 将允许乘客用加密货币支付机票</a></div>
 `;
         } else {
             console.error("❌ 没找到 news-container 元素！");
