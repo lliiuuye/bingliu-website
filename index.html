@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+<!-- index_temp.html -->
+<!DOCTYPE html>      
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +8,156 @@
     <title>Bing Liu - Personal Website</title>
     <style>
         /* Your existing CSS remains unchanged here */
-        
+        /* 通用样式 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 3px solid #ccc;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.position {
+    color: #666;
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+/* Contact Info */
+.contact-info {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.contact-item p {
+    margin: 5px 0 0 0;
+}
+
+/* Main Layout */
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Left Column */
+.left-column {
+    flex: 2;
+}
+
+.section {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.section h2 {
+    border-left: 5px solid #1a73e8;
+    padding-left: 10px;
+    color: #1a73e8;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.skill-category {
+    flex: 1;
+    min-width: 200px;
+}
+
+.skill-category h4 {
+    color: #555;
+}
+
+.skill-category ul {
+    padding-left: 20px;
+}
+
+.project-item h3 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+/* News Column */
+.news-column {
+    flex: 1;
+}
+
+.news-item {
+    background: #ffffff;
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    transition: background 0.3s;
+}
+
+.news-item:hover {
+    background: #eef4ff;
+}
+
+.loading {
+    text-align: center;
+    padding: 20px;
+    color: #888;
+    font-style: italic;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .contact-info {
+        flex-direction: column;
+    }
+
+    .news-column {
+        order: -1;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -129,16 +280,16 @@
     document.addEventListener("DOMContentLoaded", function() {
         const container = document.getElementById("news-container");
         if (container) {
-            container.innerHTML = `<div class="news-item"><a href="https://finance.sina.com.cn/world/2025-07-09/doc-infevhsa9888042.shtml" target="_blank">苹果公司迎来重大人事变动 首席运营官Williams将退休</a></div>
-<div class="news-item"><a href="https://finance.sina.com.cn/jjxw/2025-07-09/doc-infevhrx5181679.shtml" target="_blank">马斯克痛批：“极其疯狂且具破坏性”！美国的“兴奋剂”，全球的危险品</a></div>
-<div class="news-item"><a href="https://finance.sina.com.cn/tech/shenji/2025-07-09/doc-infevnxy9777080.shtml" target="_blank">24万坐个月子，3年却亏12亿！ “月子爱马仕”圣贝拉上市，钱都烧哪了？</a></div>
-<div class="news-item"><a href="https://finance.sina.com.cn/world/2025-07-09/doc-infevaix4752961.shtml" target="_blank">Meta向EssilorLuxottica投资35亿美元 推进AI眼镜战略</a></div>
-<div class="news-item"><a href="https://tousu.sina.com.cn/complaint/view/17384975578/?sld=64a9fe638b2838fa3ee7ea41244598ed" target="_blank">Apple应用恶意续订扣费</a></div>
-<div class="news-item"><a href="https://finance.sina.com.cn/tech/mobile/n/n/2025-07-09/doc-infewyzk1024163.shtml" target="_blank">三星Galaxy Z Flip7上手体验：外屏直接拉满</a></div>
-<div class="news-item"><a href="https://finance.sina.com.cn/world/2025-07-09/doc-infewyzh9190392.shtml" target="_blank">谷歌将Gemini引入Wear OS智能手表，为“圈选搜索”功能新增AI模式</a></div>
-<div class="news-item"><a href="https://finance.sina.com.cn/stock/usstock/c/2025-07-09/doc-infewyzf2413918.shtml" target="_blank">马斯克旗下X平台CEO宣布辞职</a></div>
-<div class="news-item"><a href="https://finance.sina.com.cn/tech/mobile/n/n/2025-07-09/doc-infewutk9317382.shtml" target="_blank">三星Galaxy Z Fold7上手：轻了薄了弯了</a></div>
-<div class="news-item"><a href="https://finance.sina.com.cn/stock/usstock/c/2025-07-09/doc-infewutk9316217.shtml" target="_blank">阿联酋航空与Crypto.com签署谅解备忘录 将允许乘客用加密货币支付机票</a></div>
+            container.innerHTML = `<div class="news-item"><a href="https://finance.sina.com.cn/zt_d/subject-1753061797" target="_blank">聚焦|2025世界人工智能大会：智能时代 同球共济</a></div>
+<div class="news-item"><a href="https://finance.sina.com.cn/stock/auto/2025-07-26/doc-infhueca7454030.shtml" target="_blank">“懂车帝智驾安全实测”引争议，多家车企回应</a></div>
+<div class="news-item"><a href="https://finance.sina.com.cn/stock/2025-07-26/doc-infhueca7466894.shtml" target="_blank">“一年不登录账号或被删”？网易游戏被骂上热搜</a></div>
+<div class="news-item"><a href="https://tousu.sina.com.cn/complaint/view/17385671664/?sld=ff1d9dd394da10cbcdf077106aed757b" target="_blank">交易猫买账号被找回</a></div>
+<div class="news-item"><a href="https://finance.sina.com.cn/tech/2025-07-27/doc-infhxqvq2463611.shtml" target="_blank">直击WAIC丨智联招聘亮相2025世界人工智能大会，首发智联招聘AI版</a></div>
+<div class="news-item"><a href="https://finance.sina.com.cn/stock/marketresearch/2025-07-27/doc-infhxqvn0664148.shtml" target="_blank">机器人展区“水泄不通”，专家谈落地：很多问题待解决 | WAIC观察</a></div>
+<div class="news-item"><a href="https://finance.sina.com.cn/wm/2025-07-27/doc-infhxefu2673301.shtml" target="_blank">宇树科技王兴兴透露：一直在用AI写代码</a></div>
+<div class="news-item"><a href="https://finance.sina.com.cn/tech/2025-07-27/doc-infhxefv6621853.shtml" target="_blank">直击WAIC丨科大讯飞副总裁赵翔：如果人工智能企业都能加入协同，整个生态圈会更有趣</a></div>
+<div class="news-item"><a href="https://finance.sina.com.cn/tech/2025-07-27/doc-infhxefs0866781.shtml" target="_blank">直击WAIC｜对话京东高级副总裁何晓冬：AI眼镜需突破两大技术瓶颈</a></div>
+<div class="news-item"><a href="https://finance.sina.com.cn/jjxw/2025-07-27/doc-infhxefs5893181.shtml" target="_blank">中信智库发布《AI新纪元：砥砺开疆・智火燎原》AI+产业发展深度研究报告</a></div>
 `;
         } else {
             console.error("❌ 没找到 news-container 元素！");
